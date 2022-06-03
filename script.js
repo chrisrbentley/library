@@ -60,6 +60,7 @@ function displayForm() {
         const pages = document.createElement("input");
         const readLabel = document.createElement("label");
         const read = document.createElement("input");
+        const submit = document.createElement("button");
 
         form.setAttribute("id", "form");
         form.setAttribute("method", "get");
@@ -83,12 +84,15 @@ function displayForm() {
         read.setAttribute("type", "checkbox");
         read.setAttribute("name", "read");
         read.setAttribute("id", "read");
+        submit.setAttribute("type", "submit");
+        submit.setAttribute("id", "submit");
 
         legend.innerHTML = 'Book Details';
         titleLabel.innerHTML = "Title:";
         authorLabel.innerHTML = "Author:"
         pagesLabel.innerHTML = "Pages:";
         readLabel.innerHTML = "Read:";
+        submit.innerHTML = "Submit";
 
         container.appendChild(form);
         form.appendChild(fieldset);
@@ -101,6 +105,7 @@ function displayForm() {
         fieldset.appendChild(pages);
         fieldset.appendChild(readLabel);
         fieldset.appendChild(read);
+        fieldset.appendChild(submit);
     })
 }
 displayForm();
