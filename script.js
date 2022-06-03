@@ -5,7 +5,7 @@ const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const read = document.getElementById("read");
 const submitBtn = document.getElementById("submit");
-
+const books = document.getElementById("books");
 
 let myLibrary = []
 
@@ -21,17 +21,23 @@ function Book(title, author, pages, read) {
 }
 
 const template = new Book('Book Title', 'Book Author', 295, 'true')
-console.log(template.info())
+console.log(template.info());
+
+const wimpyKid = new Book('Wimpy Kid', 'jeff', 101, 'true');
+
 
 function addBookToLibrary() {
-    myLibrary.push(template);
+    myLibrary.push(template, wimpyKid);
 }
 addBookToLibrary();
 
-/*function displayBooks() {
+function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         console.log('test');
         const card = document.createElement("div");
+        card.setAttribute('class', 'book-card')
+        books.appendChild(card);
+        card.textContent = myLibrary[i].info();
     }
 }
-displayBooks();*/
+displayBooks();
