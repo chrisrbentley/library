@@ -36,15 +36,11 @@ addBookToLibrary();
 
 function displayBooks() {
     submitBtn.addEventListener('click', () => {
-        for (let i = 0; i < myLibrary.length; i++) {
-            console.log('test');
-            const card = document.createElement("div");
-            card.setAttribute('class', 'book-card')
-            books.appendChild(card);
-            //let myLibraryReversed = myLibrary.reverse()
-            card.textContent = myLibrary[i].info();
-            //card.textContent = myLibraryReversed[0].info(); //////
-        }
+        let myLibraryReversed = myLibrary.reverse()
+        const card = document.createElement("div");
+        card.setAttribute('class', 'book-card')
+        books.appendChild(card);
+        card.textContent = myLibraryReversed[0].info();
     })
 }
 displayBooks();
