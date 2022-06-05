@@ -5,24 +5,34 @@ const books = document.getElementById("books");
 
 let myLibrary = []
 
+function Book(title, author, pages, status) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.status = status
+    this.info = function() {
+        let info = this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.status;
+        return info;
+    }
+}
+
 function addBookToLibrary() {
     submitBtn.addEventListener('click', function(event){
         event.preventDefault();
-        let book = {
-            title: document.getElementById("title").value,
-            author: document.getElementById("author").value,
-            pages: document.getElementById("pages").value,
-            status: document.getElementById("status").value,
-            info: function() {
-                let info = this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.status;
-            return info;
-            }
-        }
+        const title = document.getElementById("title").value;
+        const author = document.getElementById("author").value;
+        const pages = document.getElementById("pages").value;
+        const status = document.getElementById("status").value;
+        const book = new Book(title, author, pages, status);
+
+        
         myLibrary.push(book);
-        document.forms[0].reset()
+        document.forms[0].reset();
     })
 }
 addBookToLibrary();
+
+
 
 function displayBooks() {
     submitBtn.addEventListener('click', () => {
@@ -31,22 +41,24 @@ function displayBooks() {
             const card = document.createElement("div");
             card.setAttribute('class', 'book-card')
             books.appendChild(card);
+            //let myLibraryReversed = myLibrary.reverse()
             card.textContent = myLibrary[i].info();
+            //card.textContent = myLibraryReversed[0].info(); //////
         }
     })
 }
 displayBooks();
 
 // creates new book button
-const newBook = document.createElement("button");
-newBook.setAttribute("id", "new-book-btn");
-newBook.textContent = 'Add Book';
-container.appendChild(newBook);
+const newBookBtn = document.createElement("button");
+newBookBtn.setAttribute("id", "new-book-btn");
+newBookBtn.textContent = 'Add Book';
+container.appendChild(newBookBtn);
 
 
 form.style.display = 'none';
 function showForm() {
-    newBook.addEventListener('click', () => {
+    newBookBtn.addEventListener('click', () => {
         if (form.style.display === 'none') {
             form.style.display = 'block';
         }
