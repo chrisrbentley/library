@@ -3,6 +3,8 @@ const form = document.getElementById("form");
 const submitBtn = document.getElementById("submit");
 const books = document.getElementById("books");
 
+submitBtn.setAttribute("id", "submit-button");
+
 let myLibrary = []
 
 function Book(title, author, pages, status) {
@@ -52,12 +54,6 @@ function displayBooks() {
         displayedAuthor.textContent = 'by ' + myLibraryReversed[0].author;
         displayedPages.textContent = myLibraryReversed[0].pages + ' pages';
         displayedStatus.textContent = myLibraryReversed[0].status;
-
-
-
-        //card.textContent = myLibraryReversed[0].info();/////
-        //card.textContent = myLibraryReversed[0].title;/////
-
     })
 }
 displayBooks();
@@ -81,7 +77,7 @@ showForm();
 
 
 //styles
-function changeOnHover() {
+function changeAddBtnOnHover() {
     newBookBtn.addEventListener('mouseover', () => {
         newBookBtn.style.backgroundColor = "#e0e7ff";
         newBookBtn.style.borderRadius = "15px";
@@ -90,4 +86,12 @@ function changeOnHover() {
         newBookBtn.style.backgroundColor = '#c7d2fe';
     })
 }
-changeOnHover();
+changeAddBtnOnHover();
+
+submitBtn.addEventListener('mouseover', () => {
+    submitBtn.style.backgroundColor = '#e0e7ff';
+})
+
+submitBtn.addEventListener('mouseleave', () => {
+    submitBtn.style.backgroundColor = '#c7d2fe';
+})

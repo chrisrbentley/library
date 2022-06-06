@@ -19,6 +19,46 @@
     background-color: #eef2ff;
 }
 
+#form {
+    height: 500px;
+    position: relative;
+    bottom: 150px;
+}
+
+fieldset {
+    height: 475px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+fieldset > input {
+    height: 30px;
+    width: 350px;
+    background-color: #eef2ff;
+    border: none;
+    border-radius: 10px;
+}
+
+legend {
+    position: relative;
+    left: 150px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#submit-button {
+    height: 50px;
+    width: 150px;
+    background-color: #c7d2fe;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
 
 #books {
     display: flex;
@@ -47,13 +87,13 @@
 #new-book-btn {
     background-color: #c7d2fe;
     border: none;
-    font-size: 24px;
+    font-size: 32px;
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     height: 75px;
-    width: 125px;
+    width: 200px;
     position: relative;
-    left: 130px;
+    left: 105px;
     top: 50px;
 }
 
