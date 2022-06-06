@@ -54,6 +54,7 @@ function displayBooks() {
         displayedAuthor.textContent = 'by ' + myLibraryReversed[0].author;
         displayedPages.textContent = myLibraryReversed[0].pages + ' pages';
         displayedStatus.textContent = myLibraryReversed[0].status;
+        myLibraryReversed.reverse();
     })
 }
 displayBooks();

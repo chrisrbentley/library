@@ -16,12 +16,17 @@
 #header {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    background-color: #eef2ff;
+    background-color: #c7d2fe;
+    display: flex;
+    padding-left: 170px;
+    font-size: 100px;
+    font-weight: lighter;
 }
 
 #form {
     height: 500px;
-    position: relative;
+    position: fixed;
+    left: 20px;
     bottom: 150px;
 }
 
@@ -45,7 +50,7 @@ fieldset > input {
 
 legend {
     position: relative;
-    left: 150px;
+    left: 120px;
     font-size: 18px;
     font-weight: bold;
 }
@@ -62,8 +67,9 @@ legend {
 
 #books {
     display: flex;
-    gap: 10px;
-    flex-direction: column;
+    gap: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
 }
