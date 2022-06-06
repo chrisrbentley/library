@@ -40,7 +40,7 @@ function displayBooks() {
         const card = document.createElement("div");
         card.setAttribute('class', 'book-card')
         books.appendChild(card);
-        card.textContent = myLibraryReversed[0].info();
+        card.textContent = myLibraryReversed[0].info();/////
     })
 }
 displayBooks();
@@ -48,7 +48,7 @@ displayBooks();
 // creates new book button
 const newBookBtn = document.createElement("button");
 newBookBtn.setAttribute("id", "new-book-btn");
-newBookBtn.textContent = 'Add Book';
+newBookBtn.textContent = '+ Add Book';
 container.appendChild(newBookBtn);
 
 
@@ -61,3 +61,16 @@ function showForm() {
     })
 }
 showForm();
+
+
+//styles
+function changeOnHover() {
+    newBookBtn.addEventListener('mouseover', () => {
+        newBookBtn.style.backgroundColor = "#e0e7ff";
+        newBookBtn.style.borderRadius = "15px";
+    })
+    newBookBtn.addEventListener('mouseleave', () => {
+        newBookBtn.style.backgroundColor = '#c7d2fe';
+    })
+}
+changeOnHover();
