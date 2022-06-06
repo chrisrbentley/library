@@ -40,7 +40,24 @@ function displayBooks() {
         const card = document.createElement("div");
         card.setAttribute('class', 'book-card')
         books.appendChild(card);
-        card.textContent = myLibraryReversed[0].info();/////
+        const displayedTitle = document.createElement("p");
+        const displayedAuthor = document.createElement("p");
+        const displayedPages = document.createElement("p");
+        const displayedStatus = document.createElement("p");
+        card.appendChild(displayedTitle);
+        card.appendChild(displayedAuthor);
+        card.appendChild(displayedPages);
+        card.appendChild(displayedStatus);
+        displayedTitle.textContent = myLibraryReversed[0].title;
+        displayedAuthor.textContent = 'by ' + myLibraryReversed[0].author;
+        displayedPages.textContent = myLibraryReversed[0].pages + ' pages';
+        displayedStatus.textContent = myLibraryReversed[0].status;
+
+
+
+        //card.textContent = myLibraryReversed[0].info();/////
+        //card.textContent = myLibraryReversed[0].title;/////
+
     })
 }
 displayBooks();

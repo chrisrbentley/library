@@ -35,6 +35,12 @@
     width: 300px;
     background-color: #eef2ff;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
     
 }
 
