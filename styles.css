@@ -90,6 +90,15 @@ legend {
     
 }
 
+#remove-btn {
+    height: 30px;
+    width: 150px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    background-color: #c7d2fe;
+}
+
 #new-book-btn {
     background-color: #c7d2fe;
     border: none;

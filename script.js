@@ -2,6 +2,8 @@ const container = document.getElementById("container");
 const form = document.getElementById("form");
 const submitBtn = document.getElementById("submit");
 const books = document.getElementById("books");
+let removeButton;
+let indexPosition;
 
 submitBtn.setAttribute("id", "submit-button");
 
@@ -34,6 +36,21 @@ function addBookToLibrary() {
 }
 addBookToLibrary();
 
+// creates new book button
+const newBookBtn = document.createElement("button");
+newBookBtn.setAttribute("id", "new-book-btn");
+newBookBtn.textContent = '+ Add Book';
+container.appendChild(newBookBtn);
+
+form.style.display = 'none';
+function showForm() {
+    newBookBtn.addEventListener('click', () => {
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+        }
+    })
+}
+showForm();
 
 
 function displayBooks() {
@@ -46,36 +63,42 @@ function displayBooks() {
         const displayedAuthor = document.createElement("p");
         const displayedPages = document.createElement("p");
         const displayedStatus = document.createElement("p");
+        const removeButton = document.createElement("button")
         card.appendChild(displayedTitle);
         card.appendChild(displayedAuthor);
         card.appendChild(displayedPages);
         card.appendChild(displayedStatus);
+        card.appendChild(removeButton);
+        removeButton.setAttribute("id", "remove-btn")
         displayedTitle.textContent = myLibraryReversed[0].title;
         displayedAuthor.textContent = 'by ' + myLibraryReversed[0].author;
         displayedPages.textContent = myLibraryReversed[0].pages + ' pages';
         displayedStatus.textContent = myLibraryReversed[0].status;
+        removeButton.textContent = 'Remove';
         myLibraryReversed.reverse();
+
+
+        // set data attribute to index of array
+        for (let i = 0; i < myLibrary.length; i++) {
+            card.dataset.indexPosition = i;
+            removeButton.dataset.indexPosition = i;
+        }
+
+        //
+        removeButton.addEventListener('click', () => {
+            if (myLibrary.length === 1) {
+                myLibrary = [];
+                card.remove();
+            } else {
+                console.log('test');
+                myLibrary.splice(removeButton.dataset.indexPosition, 1);
+                card.remove();
+                removeButton.dataset.indexPosition = 'testing';
+            }
+        })
     })
 }
 displayBooks();
-
-// creates new book button
-const newBookBtn = document.createElement("button");
-newBookBtn.setAttribute("id", "new-book-btn");
-newBookBtn.textContent = '+ Add Book';
-container.appendChild(newBookBtn);
-
-
-form.style.display = 'none';
-function showForm() {
-    newBookBtn.addEventListener('click', () => {
-        if (form.style.display === 'none') {
-            form.style.display = 'block';
-        }
-    })
-}
-showForm();
-
 
 //styles
 function changeAddBtnOnHover() {
