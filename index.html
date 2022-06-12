@@ -25,9 +25,19 @@
     
                     <label for="pages">Pages:</label>
                     <input type="text" name="pages" id="pages" required>
-    
-                    <label for="status">Status:</label>
-                    <input type="text" name="status" id="status">
+                    
+                    <div class="radio-btns">
+                        <label for="status">Read it?</label>
+                        <div>
+                            <input type="radio" name="status" id="yes" value="Read">
+                            <label for="yes">Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="status" id="no" value="Not Read">
+                            <label for="no">No</label>
+                        </div>
+                    </div>
+            
     
                     <button id="submit" type="submit">Submit</button>
                 </fieldset>
