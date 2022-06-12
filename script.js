@@ -71,7 +71,7 @@ function displayBooks() {
         card.appendChild(displayedPages);
         card.appendChild(displayedStatus);
         card.appendChild(removeButton);
-        removeButton.setAttribute("id", "remove-btn")
+        removeButton.setAttribute("class", "remove-btn")
         displayedTitle.textContent = myLibraryReversed[0].title;
         displayedAuthor.textContent = 'by ' + myLibraryReversed[0].author;
         displayedPages.textContent = myLibraryReversed[0].pages + ' pages';

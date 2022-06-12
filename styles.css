@@ -101,7 +101,7 @@ legend {
     
 }
 
-#remove-btn {
+.remove-btn {
     height: 30px;
     width: 150px;
     border: none;
