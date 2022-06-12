@@ -2,8 +2,9 @@ const container = document.getElementById("container");
 const form = document.getElementById("form");
 const submitBtn = document.getElementById("submit");
 const books = document.getElementById("books");
-let removeButton;
-let indexPosition;
+const card = document.createElement("div");
+const removeButton = document.createElement("button")
+
 
 submitBtn.setAttribute("id", "submit-button");
 
@@ -14,6 +15,7 @@ function Book(title, author, pages, status) {
     this.author = author
     this.pages = pages
     this.status = status
+    this.id = Date.now()
     this.info = function() {
         let info = this.title + ' by ' + this.author + ', ' + this.pages + ' pages, ' + this.status;
         return info;
@@ -28,7 +30,6 @@ function addBookToLibrary() {
         const pages = document.getElementById("pages").value;
         const status = document.getElementById("status").value;
         const book = new Book(title, author, pages, status);
-
         
         myLibrary.push(book);
         document.forms[0].reset();
@@ -55,9 +56,9 @@ showForm();
 
 function displayBooks() {
     submitBtn.addEventListener('click', () => {
-        let myLibraryReversed = myLibrary.reverse()
+        let myLibraryReversed = myLibrary.reverse();
         const card = document.createElement("div");
-        card.setAttribute('class', 'book-card')
+        card.setAttribute('class', 'book-card');
         books.appendChild(card);
         const displayedTitle = document.createElement("p");
         const displayedAuthor = document.createElement("p");
@@ -78,23 +79,20 @@ function displayBooks() {
         myLibraryReversed.reverse();
 
 
-        // set data attribute to index of array
+        // set id equal to book id
         for (let i = 0; i < myLibrary.length; i++) {
-            card.dataset.indexPosition = i;
-            removeButton.dataset.indexPosition = i;
+            card.id = myLibrary[i].id
+            removeButton.id = card.id
         }
 
         //
         removeButton.addEventListener('click', () => {
-            if (myLibrary.length === 1) {
-                myLibrary = [];
-                card.remove();
-            } else {
-                console.log('test');
-                myLibrary.splice(removeButton.dataset.indexPosition, 1);
-                card.remove();
-                removeButton.dataset.indexPosition = 'testing';
-            }
+            console.log('testing');
+            myLibrary = myLibrary.filter(function(o) {
+                ////
+                return o.id != removeButton.id;
+            });
+            card.remove();
         })
     })
 }
