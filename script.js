@@ -3,8 +3,8 @@ const form = document.getElementById("form");
 const submitBtn = document.getElementById("submit");
 const books = document.getElementById("books");
 const card = document.createElement("div");
-const removeButton = document.createElement("button")
-
+const removeButton = document.createElement("button");
+const displayedStatus = document.createElement("button");
 
 submitBtn.setAttribute("id", "submit-button");
 
@@ -28,8 +28,12 @@ function addBookToLibrary() {
         const title = document.getElementById("title").value;
         const author = document.getElementById("author").value;
         const pages = document.getElementById("pages").value;
-        const status = document.querySelector('input[name="status"]:checked').value;
-        //const status = document.getElementById("status").value;
+        let status = document.querySelector('#status').checked;
+        if (status === true) {
+            status = 'Read'
+        } else {
+            status = 'Not read'
+        }
         const book = new Book(title, author, pages, status);
         
         myLibrary.push(book);
@@ -64,8 +68,9 @@ function displayBooks() {
         const displayedTitle = document.createElement("p");
         const displayedAuthor = document.createElement("p");
         const displayedPages = document.createElement("p");
-        const displayedStatus = document.createElement("p");
-        const removeButton = document.createElement("button")
+        const displayedStatus = document.createElement("button");
+        const removeButton = document.createElement("button");
+        displayedStatus.setAttribute("class", "status-btn");
         card.appendChild(displayedTitle);
         card.appendChild(displayedAuthor);
         card.appendChild(displayedPages);
@@ -84,6 +89,7 @@ function displayBooks() {
         for (let i = 0; i < myLibrary.length; i++) {
             card.id = myLibrary[i].id
             removeButton.id = card.id
+            displayedStatus.id = card.id
         }
 
         //
@@ -94,6 +100,7 @@ function displayBooks() {
             });
             card.remove();
         })
+        
     })
 }
 displayBooks();
