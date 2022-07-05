@@ -22,6 +22,9 @@ function Book(title, author, pages, status) {
     }
 }
 
+
+
+
 function addBookToLibrary() {
     submitBtn.addEventListener('click', function(event){
         event.preventDefault();
@@ -42,6 +45,8 @@ function addBookToLibrary() {
 }
 addBookToLibrary();
 
+
+
 // creates new book button
 const newBookBtn = document.createElement("button");
 newBookBtn.setAttribute("id", "new-book-btn");
@@ -57,6 +62,14 @@ function showForm() {
     })
 }
 showForm();
+
+Book.prototype.toggleStatus = function() {
+    if (this.status === 'Read') {
+        this.status = 'Not read';
+    } else if (this.status === 'Not read') {
+        this.status = 'Read';
+    }
+}
 
 
 function displayBooks() {
@@ -87,9 +100,10 @@ function displayBooks() {
 
         // set id equal to book id
         for (let i = 0; i < myLibrary.length; i++) {
-            card.id = myLibrary[i].id
-            removeButton.id = card.id
-            displayedStatus.id = card.id
+            card.id = myLibrary[i].id;
+            removeButton.id = card.id;
+            displayedStatus.id = card.id;
+            //Number(displayedStatus.id);
         }
 
         //
@@ -100,10 +114,21 @@ function displayBooks() {
             });
             card.remove();
         })
-        
+
+        displayedStatus.addEventListener('click', () => {
+            let tempID = displayedStatus.id;
+            let foundBook = myLibrary.find(x => x.id === Number(tempID));
+            foundBook.toggleStatus();
+            console.log(tempID);
+            console.log(foundBook);
+        });
     })
 }
 displayBooks();
+
+
+
+
 
 //styles
 function changeAddBtnOnHover() {
