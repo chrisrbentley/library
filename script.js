@@ -123,27 +123,3 @@ function displayBooks() {
     })
 }
 displayBooks();
-
-
-
-
-
-//styles
-function changeAddBtnOnHover() {
-    newBookBtn.addEventListener('mouseover', () => {
-        newBookBtn.style.backgroundColor = "#e0e7ff";
-        newBookBtn.style.borderRadius = "15px";
-    })
-    newBookBtn.addEventListener('mouseleave', () => {
-        newBookBtn.style.backgroundColor = '#c7d2fe';
-    })
-}
-changeAddBtnOnHover();
-
-submitBtn.addEventListener('mouseover', () => {
-    submitBtn.style.backgroundColor = '#e0e7ff';
-})
-
-submitBtn.addEventListener('mouseleave', () => {
-    submitBtn.style.backgroundColor = '#c7d2fe';
-})

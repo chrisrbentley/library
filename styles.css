@@ -65,6 +65,10 @@ legend {
     font-weight: bold;
 }
 
+#submit-button:hover {
+    background-color: #e0e7ff;
+}
+
 #books {
     display: flex;
     gap: 50px;
@@ -119,5 +123,10 @@ legend {
     position: relative;
     left: 105px;
     top: 50px;
+}
+
+#new-book-btn:hover {
+    background-color: #e0e7ff;
+    border-radius: 15px;
 }
 
