@@ -119,6 +119,7 @@ function displayBooks() {
             let tempID = displayedStatus.id;
             let foundBook = myLibrary.find(x => x.id === Number(tempID));
             foundBook.toggleStatus();
+            displayedStatus.textContent = foundBook.status;
             console.log(tempID);
             console.log(foundBook);
         });
