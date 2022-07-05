@@ -108,7 +108,6 @@ function displayBooks() {
 
         //
         removeButton.addEventListener('click', () => {
-            console.log('testing');
             myLibrary = myLibrary.filter(function(o) {
                 return o.id != removeButton.id;
             });
@@ -120,8 +119,6 @@ function displayBooks() {
             let foundBook = myLibrary.find(x => x.id === Number(tempID));
             foundBook.toggleStatus();
             displayedStatus.textContent = foundBook.status;
-            console.log(tempID);
-            console.log(foundBook);
         });
     })
 }
